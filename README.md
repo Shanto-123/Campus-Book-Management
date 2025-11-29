@@ -1,232 +1,155 @@
-# Campus-Book-Management
-Campus Book Exchange System
+📚 Campus Book Exchange System
 
-A full-stack Web Application built using the MERN Stack (MongoDB, Express.js, React.js, Node.js). This platform is designed specifically for university campuses, allowing students to easily buy, sell, and exchange their used books with other students.
+A full-stack MERN (MongoDB, Express.js, React.js, Node.js) web application built for university campuses so students can buy, sell, and exchange used books easily.
 
 🚀 Features
-
 👤 User Features
 
-Secure Authentication: Students can register and login securely.
+Secure authentication (Register / Login)
 
-Browse Books: View a list of available books with images, prices, and condition details.
+Browse books with images, price, and condition
 
-Search Functionality: Search for specific books by title, author, or category.
+Search & filter by title, author, or category
 
-My Cart: Add books to the cart and proceed to checkout.
+Add to cart and checkout (Cash on Delivery)
 
-Buy Books: Purchase books directly through the system (Cash on Delivery).
+User dashboard: My Uploaded Books & Purchase History
 
-User Dashboard: View "My Uploaded Books" and "My Purchase History".
+📚 Book Management
 
-📚 Book Management Features
+Upload books with images and details
 
-Upload Books: Users can list their old books for sale by uploading details and images.
+Edit book info (price, stock, description)
 
-Edit Details: Update book prices, stock status, or descriptions.
+Remove book listings
 
-Remove Books: Delete a book listing when it is sold or no longer available.
+Automatic stock update after purchase
 
-Stock Management: The system automatically updates the availability status of books upon purchase.
-
-Image Handling: Efficient image upload system for book covers.
+Image handling with Multer
 
 🛠️ Technology Stack
 
-Component
+Frontend: React.js, React-Bootstrap, Axios
 
-Technology
+Backend: Node.js, Express.js
 
-Description
+Database: MongoDB
 
-Frontend
+Authentication: JWT (JSON Web Tokens)
 
-React.js
+File Uploads: Multer
 
-Used for building the interactive User Interface.
-
-
-
-React-Bootstrap
-
-For responsive design and layout.
-
-
-
-Axios
-
-To communicate with the backend server.
-
-Backend
-
-Node.js
-
-The runtime environment for the server.
-
-
-
-Express.js
-
-Framework for building the RESTful API.
-
-Database
-
-MongoDB
-
-NoSQL database to store User, Book, and Order data.
-
-Security
-
-JWT
-
-JSON Web Tokens for secure authentication.
-
-Tools
-
-Multer
-
-For handling book image uploads.
-
-⚙️ Installation & Setup Guide
-
-Follow these steps to run the project locally on your machine.
-
+⚙️ Installation & Setup
 Prerequisites
 
-Node.js (LTS Version)
+Node.js (LTS)
 
 MongoDB Community Server
 
-1. Clone the Repository
-
-git clone [https://github.com/your-username/campus-book-exchange.git](https://github.com/your-username/campus-book-exchange.git)
+1. Clone the repository
+git clone https://github.com/your-username/campus-book-exchange.git
 cd campus-book-exchange
 
-
-2. Backend Setup
-
-Navigate to the backend folder and install dependencies.
-
+2. Backend setup
 cd backend
 npm install
 
 
-Configure Environment Variables:
-Create a .env file in the backend folder:
+Create .env in backend/:
 
 MONGO_URI=mongodb://localhost:27017/campus-book-exchange
 JWT_SECRET=your_secret_key_12345
 PORT=5000
 
 
-Start the Server:
+Start backend:
 
 npm start
+# or for dev with hot reload
+npm run dev
 
+3. Frontend setup
 
-3. Frontend Setup
-
-Open a new terminal, go to the frontend folder, and install dependencies.
+Open a new terminal:
 
 cd frontend
 npm install
-
-
-Start the React App:
-
 npm start
 
 
-The app will open at http://localhost:3000.
+The frontend will open at: http://localhost:3000
 
 📂 Project Structure
-
 campus-book-exchange/
-├── backend/                # Server Side Logic
-│   ├── models/             # Database Schemas (User, Product/Book, Order)
-│   ├── routes/             # API Endpoints
-│   ├── uploads/            # Book Images
-│   └── server.js           # Entry Point
-│
-└── frontend/               # Client Side Interface
-    ├── src/
-        ├── components/     # UI Components (Navbar, Dashboard, Products)
-        ├── context/        # State Management
-        └── App.js          # Main Component
-
+├── backend/
+│   ├── models/
+│   ├── routes/
+│   ├── middleware/
+│   ├── uploads/
+│   ├── .env
+│   └── server.js
+└── frontend/
+    ├── public/
+    └── src/
+        ├── components/
+        ├── pages/
+        └── api/
 
 🔗 API Endpoints
+Method	Endpoint	Description	Access
+POST	/api/auth/register	Register new student	Public
+POST	/api/auth/login	Student login	Public
+GET	/api/products	Get list of all books	Public
+POST	/api/products	Upload a new book	Private
+PUT	/api/products/:id	Update book details	Private (Owner)
+DELETE	/api/products/:id	Remove a book	Private (Owner)
+POST	/api/orders	Buy books (Checkout)	Private
+📸 Screenshots
 
-Method
+Below are visual previews of the frontend. Replace the placeholder paths with your actual screenshot file paths (commit them under /frontend/public/assets/screenshots/ or /assets/screenshots/).
 
-Endpoint
+🏠 Home Page
 
-Description
+Shows book listings, navbar, and search bar.
 
-Access
 
-POST
+🔍 Search & Filter
 
-/api/auth/register
+Search books by title, category, or author.
 
-Register new student
 
-Public
+📘 Book Details
 
-POST
+Detail view with description, price, condition, seller info.
 
-/api/auth/login
 
-Student login
+🛒 Cart Page
 
-Public
+Review items in cart and proceed to checkout.
 
-GET
 
-/api/products
+📤 Upload Book
 
-Get list of all books
+Page to upload book details and images.
 
-Public
 
-POST
+👤 User Dashboard
 
-/api/products
+View uploaded books, purchase history, and account settings.
 
-Upload a new book
 
-Private
+✅ Notes & Tips
 
-PUT
+For production: store images in cloud storage (S3, Cloudinary), enable HTTPS, configure CORS properly, and add rate limiting.
 
-/api/products/:id
+Consider adding client-side validation and richer UI/UX for better user experience.
 
-Update book details
-
-Private (Owner)
-
-DELETE
-
-/api/products/:id
-
-Remove a book
-
-Private (Owner)
-
-POST
-
-/api/orders
-
-Buy books (Checkout)
-
-Private
+If you want, I can create optimized screenshot images and a repo banner for README.
 
 👨‍💻 Author
 
-[Your Name]
-
-Course: CSE 4th Year - ADBMS Project
-
+Your Name
+Course: CSE 4th Year — ADBMS Project
 University: [Your University Name]
 
 📄 License
